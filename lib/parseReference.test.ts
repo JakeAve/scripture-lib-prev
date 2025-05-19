@@ -7,15 +7,10 @@ Deno.test("Is fine without an end of range", () => {
   assertEquals(ref, {
     book: {
       name: "1 Nephi",
-      path: "/study/scriptures/bofm/1-ne",
       abbr: "1 Ne.",
-      chapters: [
-        20, 24, 31, 38, 22, 6, 22, 38, 6, 22, 36, 23, 42, 30, 36, 39, 55, 25,
-        24, 22, 26, 31,
-      ],
     },
     chapter: 3,
-    ranges: [7],
+    verses: [7],
     reference: "1 Nephi 3:7",
     abbr: "1 Ne. 3:7",
     link: "https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/3?lang=eng&id=p7#p7",
@@ -30,14 +25,10 @@ Deno.test("Finds the end", () => {
   assertEquals(ref, {
     book: {
       name: "1 Corinthians",
-      path: "/study/scriptures/nt/1-cor",
       abbr: "1 Cor.",
-      chapters: [
-        31, 16, 23, 21, 13, 20, 40, 13, 27, 33, 34, 31, 13, 40, 58, 24,
-      ],
     },
     chapter: 15,
-    ranges: [[40, 46]],
+    verses: [[40, 46]],
     reference: "1 Corinthians 15:40-46",
     abbr: "1 Cor. 15:40-46",
     link: "https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/15?lang=eng&id=p40-p46#p40",
@@ -52,12 +43,10 @@ Deno.test("Finds without verses", () => {
   assertEquals(ref, {
     book: {
       name: "Jacob",
-      path: "/study/scriptures/bofm/jacob",
       abbr: "Jacob",
-      chapters: [19, 35, 14, 18, 77, 13, 27],
     },
     chapter: 5,
-    ranges: [],
+    verses: [],
     reference: "Jacob 5",
     abbr: "Jacob 5",
     link: "https://www.churchofjesuschrist.org/study/scriptures/bofm/jacob/5?lang=eng",
@@ -72,12 +61,10 @@ Deno.test("Finds book", () => {
   assertEquals(ref, {
     book: {
       name: "Omni",
-      path: "/study/scriptures/bofm/omni",
       abbr: "Omni",
-      chapters: [30],
     },
     chapter: 1,
-    ranges: [],
+    verses: [],
     reference: "Omni 1",
     abbr: "Omni 1",
     link: "https://www.churchofjesuschrist.org/study/scriptures/bofm/omni/1?lang=eng",
@@ -92,21 +79,10 @@ Deno.test("Finds D&C", () => {
   assertEquals(ref, {
     book: {
       name: "Doctrine and Covenants",
-      path: "/study/scriptures/dc-testament/dc",
       abbr: "D&C",
-      chapters: [
-        39, 3, 20, 7, 35, 37, 8, 12, 14, 70, 30, 9, 1, 11, 6, 6, 9, 47, 41, 84,
-        12, 4, 7, 19, 16, 2, 18, 16, 50, 11, 13, 5, 18, 12, 27, 8, 4, 42, 24, 3,
-        12, 93, 35, 6, 75, 33, 4, 6, 28, 46, 20, 44, 7, 10, 6, 20, 16, 65, 24,
-        17, 39, 9, 66, 43, 6, 13, 14, 35, 8, 18, 11, 26, 6, 7, 36, 119, 15, 22,
-        4, 5, 7, 24, 6, 120, 12, 11, 8, 141, 21, 37, 6, 2, 53, 17, 17, 9, 28,
-        48, 8, 17, 101, 34, 40, 86, 41, 8, 100, 8, 80, 16, 11, 34, 10, 2, 19, 1,
-        16, 6, 7, 1, 46, 9, 17, 145, 4, 3, 12, 25, 9, 23, 8, 66, 74, 12, 7, 42,
-        10, 60,
-      ],
     },
     chapter: 20,
-    ranges: [1],
+    verses: [1],
     reference: "Doctrine and Covenants 20:1",
     abbr: "D&C 20:1",
     link: "https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/20?lang=eng&id=p1#p1",
@@ -121,16 +97,10 @@ Deno.test("Finds single verse", () => {
   assertEquals(ref, {
     book: {
       name: "Exodus",
-      path: "/study/scriptures/ot/ex",
       abbr: "Ex.",
-      chapters: [
-        22, 25, 22, 31, 23, 30, 25, 32, 35, 29, 10, 51, 22, 31, 27, 36, 16, 27,
-        25, 26, 36, 31, 33, 18, 40, 37, 21, 43, 46, 38, 18, 35, 23, 35, 35, 38,
-        29, 31, 43, 38,
-      ],
     },
     chapter: 20,
-    ranges: [13],
+    verses: [13],
     reference: "Exodus 20:13",
     abbr: "Ex. 20:13",
     link: "https://www.churchofjesuschrist.org/study/scriptures/ot/ex/20?lang=eng&id=p13#p13",
@@ -144,15 +114,10 @@ Deno.test("Finds range of verses", () => {
   assertEquals(ref, {
     book: {
       name: "Mosiah",
-      path: "/study/scriptures/bofm/mosiah",
       abbr: "Mosiah",
-      chapters: [
-        18, 41, 27, 30, 15, 7, 33, 21, 19, 22, 29, 37, 35, 12, 31, 15, 20, 35,
-        29, 26, 36, 16, 39, 25, 24, 39, 37, 20, 47,
-      ],
     },
     chapter: 4,
-    ranges: [[15, 19]],
+    verses: [[15, 19]],
     reference: "Mosiah 4:15-19",
     abbr: "Mosiah 4:15-19",
     link: "https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/4?lang=eng&id=p15-p19#p15",
@@ -167,12 +132,10 @@ Deno.test("Finds ranges of verses", () => {
   assertEquals(ref, {
     book: {
       name: "Ether",
-      path: "/study/scriptures/bofm/ether",
       abbr: "Ether",
-      chapters: [43, 25, 28, 19, 6, 30, 27, 26, 35, 34, 23, 41, 31, 31, 34],
     },
     chapter: 12,
-    ranges: [[4, 27], [28, 30], 31],
+    verses: [[4, 27], [28, 30], 31],
     reference: "Ether 12:4-27, 28-30, 31",
     abbr: "Ether 12:4-27, 28-30, 31",
     link: "https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/12?lang=eng&id=p4-p27,p28-p30,p31#p4",
@@ -187,15 +150,10 @@ Deno.test("Sorts verse ranges", () => {
   assertEquals(ref, {
     book: {
       name: "John",
-      path: "/study/scriptures/nt/john",
       abbr: "John",
-      chapters: [
-        51, 25, 36, 54, 47, 71, 53, 59, 41, 42, 57, 50, 38, 31, 27, 33, 26, 40,
-        42, 31, 25,
-      ],
     },
     chapter: 17,
-    ranges: [
+    verses: [
       [1, 6],
       [9, 10],
     ],
@@ -213,12 +171,10 @@ Deno.test("Only book", () => {
   assertEquals(ref, {
     book: {
       name: "Mormon",
-      path: "/study/scriptures/bofm/morm",
       abbr: "Morm.",
-      chapters: [19, 29, 22, 23, 24, 22, 10, 41, 37],
     },
     chapter: undefined,
-    ranges: [],
+    verses: [],
     reference: "Mormon",
     abbr: "Morm.",
     link: "https://www.churchofjesuschrist.org/study/scriptures/bofm/morm?lang=eng",
@@ -232,14 +188,10 @@ Deno.test("Can pick up other symbols", () => {
   assertEquals(ref, {
     book: {
       name: "1 Corinthians",
-      path: "/study/scriptures/nt/1-cor",
       abbr: "1 Cor.",
-      chapters: [
-        31, 16, 23, 21, 13, 20, 40, 13, 27, 33, 34, 31, 13, 40, 58, 24,
-      ],
     },
     chapter: 12,
-    ranges: [[12, 27]],
+    verses: [[12, 27]],
     reference: "1 Corinthians 12:12-27",
     abbr: "1 Cor. 12:12-27",
     link: "https://www.churchofjesuschrist.org/study/scriptures/nt/1-cor/12?lang=eng&id=p12-p27#p12",
@@ -254,12 +206,10 @@ Deno.test("Will show a single verse for an incomplete range", () => {
   assertEquals(ref, {
     book: {
       name: "1 John",
-      path: "/study/scriptures/nt/1-jn",
       abbr: "1 Jn.",
-      chapters: [10, 29, 24, 21, 21],
     },
     chapter: 1,
-    ranges: [7],
+    verses: [7],
     reference: "1 John 1:7",
     abbr: "1 Jn. 1:7",
     link: "https://www.churchofjesuschrist.org/study/scriptures/nt/1-jn/1?lang=eng&id=p7#p7",
@@ -274,12 +224,10 @@ Deno.test("Will coerce a weird range", () => {
   assertEquals(ref, {
     book: {
       name: "1 John",
-      path: "/study/scriptures/nt/1-jn",
       abbr: "1 Jn.",
-      chapters: [10, 29, 24, 21, 21],
     },
     chapter: 1,
-    ranges: [7, 8, 9],
+    verses: [7, 8, 9],
     reference: "1 John 1:7, 8, 9",
     abbr: "1 Jn. 1:7, 8, 9",
     link: "https://www.churchofjesuschrist.org/study/scriptures/nt/1-jn/1?lang=eng&id=p7,p8,p9#p7",
@@ -294,21 +242,10 @@ Deno.test("Will use the last verse if verse numbers are too high", () => {
   assertEquals(ref, {
     book: {
       name: "Doctrine and Covenants",
-      path: "/study/scriptures/dc-testament/dc",
       abbr: "D&C",
-      chapters: [
-        39, 3, 20, 7, 35, 37, 8, 12, 14, 70, 30, 9, 1, 11, 6, 6, 9, 47, 41, 84,
-        12, 4, 7, 19, 16, 2, 18, 16, 50, 11, 13, 5, 18, 12, 27, 8, 4, 42, 24, 3,
-        12, 93, 35, 6, 75, 33, 4, 6, 28, 46, 20, 44, 7, 10, 6, 20, 16, 65, 24,
-        17, 39, 9, 66, 43, 6, 13, 14, 35, 8, 18, 11, 26, 6, 7, 36, 119, 15, 22,
-        4, 5, 7, 24, 6, 120, 12, 11, 8, 141, 21, 37, 6, 2, 53, 17, 17, 9, 28,
-        48, 8, 17, 101, 34, 40, 86, 41, 8, 100, 8, 80, 16, 11, 34, 10, 2, 19, 1,
-        16, 6, 7, 1, 46, 9, 17, 145, 4, 3, 12, 25, 9, 23, 8, 66, 74, 12, 7, 42,
-        10, 60,
-      ],
     },
     chapter: 138,
-    ranges: [[59, 60]],
+    verses: [[59, 60]],
     reference: "Doctrine and Covenants 138:59-60",
     abbr: "D&C 138:59-60",
     link: "https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/138?lang=eng&id=p59-p60#p59",

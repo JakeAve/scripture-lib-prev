@@ -7,12 +7,21 @@ export interface Book {
 
 export type VerseRange = (number | [number, number])[];
 
+export interface BookRef {
+  name: string;
+  abbr: string;
+}
+
 export interface Reference {
-  book: Book;
+  book: BookRef;
   chapter?: number;
-  ranges: VerseRange;
+  verses: VerseRange;
   reference: string;
   abbr: string;
   link: string;
   content: string;
+}
+
+export interface ReferenceMatch extends Reference {
+  match: string;
 }

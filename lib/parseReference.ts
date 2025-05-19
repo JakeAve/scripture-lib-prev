@@ -13,7 +13,7 @@ import { Book, Reference, VerseRange } from "../types.ts";
  * // {
  * //   book: { name: "Genesis", path: "/study/scriptures/ot/gen", abbr: "Gen", chapters: [1, 2, ...] },
  * //   chapter: 1,
- * //   ranges: [[1, 3], 5]
+ * //   verses: [[1, 3], 5]
  */
 export function parseReference(input: string): Reference {
   input = input.trim();
@@ -115,9 +115,9 @@ export function parseReference(input: string): Reference {
   });
 
   return {
-    book,
+    book: { name: book.name, abbr: book.abbr },
     chapter,
-    ranges,
+    verses: ranges,
     reference,
     abbr,
     link,
@@ -213,7 +213,7 @@ const lang = "?lang=eng";
  * @param opts
  * @returns
  */
-function formatReference({
+export function formatReference({
   book,
   chapter,
   ranges,
