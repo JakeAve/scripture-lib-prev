@@ -26,6 +26,13 @@ if [[ "$LAST_COMMIT_MESSAGE" != *"Update version"* ]]; then
     exit 1
 fi
 
+deno fmt --check
+
+if [ $? -ne 0 ]; then
+    echo "Formatting failed. Please fix the issues and try again."
+    exit 1
+fi
+
 deno lint
 
 if [ $? -ne 0 ]; then
