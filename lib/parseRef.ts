@@ -22,7 +22,6 @@ import { formatRef } from "./formatRef.ts";
  * //   "reference": "Genesis 1:1-3, 5",
  * //   "abbr": "Gen. 1:1-3, 5",
  * //   "link": "https://www.churchofjesuschrist.org/study/scriptures/ot/gen/1?lang=eng&id=p1-p3,p5#p1",
- * //   "content": "In the beginning God created the heaven and the earth...",
  * // },
  */
 export function parseRef(input: string): Reference {
@@ -132,12 +131,12 @@ function parseBook(bookText: string): Book {
 
     const dA = Math.min(
       Math.abs(abbrA.length - bookText.length),
-      Math.abs(nameA.length - bookText.length),
+      Math.abs(nameA.length - bookText.length)
     );
 
     const dB = Math.min(
       Math.abs(abbrB.length - bookText.length),
-      Math.abs(nameB.length - bookText.length),
+      Math.abs(nameB.length - bookText.length)
     );
 
     if (dA < dB) {
