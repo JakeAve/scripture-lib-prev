@@ -11,7 +11,8 @@ Includes:
 - Doctrine and Covenants
 - Pearl of Great Price
 
-Contents are a little under 7 megabytes. Should be ran locally or on a server and not sent to a frontend application.
+Contents are a little under 7 megabytes. Should be ran locally or on a server
+and not sent to a frontend application.
 
 ## `parseRef(input: string)`
 
@@ -57,7 +58,7 @@ const ref1 = parseRef("duet 12:32");
 */
 ```
 
-## findRef(input: string, options)
+## `findRef(input: string, options)`
 
 Takes in a fuzzy string reference and tries to find possible scripture passages.
 

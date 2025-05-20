@@ -84,10 +84,9 @@ export function formatRef({
         if (!contentInput) {
           for (let i = range[0]; i < range[1]; i++) {
             const idx = i - 1;
-            content +=
-              contents[book.name as keyof typeof contents][
-                (chapter as number) - 1
-              ]?.[idx];
+            content += contents[book.name as keyof typeof contents][
+              (chapter as number) - 1
+            ]?.[idx];
             content += " ";
           }
         }
@@ -101,10 +100,9 @@ export function formatRef({
         vs.push(range.toString());
 
         if (!contentInput) {
-          content +=
-            contents[book.name as keyof typeof contents][
-              (chapter as number) - 1
-            ]?.[range - 1];
+          content += contents[book.name as keyof typeof contents][
+            (chapter as number) - 1
+          ]?.[range - 1];
 
           content += " ";
         }
@@ -138,11 +136,14 @@ export function formatRef({
 
   const highlights = verses.length ? "&id=" + ps.join(",") : "";
 
-  const link = `${domain}${book.path}${chapterPath}${lang}${highlights}${anchor}`;
+  const link =
+    `${domain}${book.path}${chapterPath}${lang}${highlights}${anchor}`;
 
-  const numberPortion = `${chapter || ""}${vs.length ? ":" : ""}${vs.join(
-    ", "
-  )}`;
+  const numberPortion = `${chapter || ""}${vs.length ? ":" : ""}${
+    vs.join(
+      ", ",
+    )
+  }`;
 
   const reference = `${book.name} ${numberPortion}`.trim();
   const abbr = `${book.abbr} ${numberPortion}`.trim();

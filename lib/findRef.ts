@@ -25,7 +25,7 @@ interface Result {
 
 export function findRef(
   rawInput: string,
-  opts: FindRefOptions = {}
+  opts: FindRefOptions = {},
 ): ReferenceMatch[] {
   const {
     volume,
