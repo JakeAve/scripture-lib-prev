@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "version": "deno task --allow-read=./* --allow-write=./* ./scripts/version.ts"
+    "version": "deno task --allow-read=/ --allow-write=/ ./scripts/version.ts"
   },
   "imports": {
     "@std/assert": "jsr:@std/assert@1",
