@@ -97,7 +97,7 @@ function parseBook(bookText: string): Book {
 
     const minA = Math.min(distance(abbrA, bookText), distance(nameA, bookText));
 
-        const abbrB = b.abbr.toLocaleLowerCase();
+    const abbrB = b.abbr.toLocaleLowerCase();
     const nameB = b.name.toLocaleLowerCase();
 
     const minB = Math.min(distance(abbrB, bookText), distance(nameB, bookText));
