@@ -1,8 +1,4 @@
-export function add(a: number, b: number): number {
-  return a + b;
-}
+import { findRef } from "./lib/findRef.ts";
+import { parseRef } from "./lib/parseRef.ts";
 
-// Learn more at https://docs.deno.com/runtime/manual/examples/module_metadata#concepts
-if (import.meta.main) {
-  console.log("Add 2 + 3 =", add(2, 3));
-}
+export { findRef, parseRef };

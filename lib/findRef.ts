@@ -2,25 +2,25 @@ import { distance } from "fastest-levenshtein";
 import contents, * as volumes from "../data/contents.ts";
 import { Book, ReferenceMatch } from "../types.ts";
 import bookRefs from "../data/books.ts";
-import { formatReference } from "./parseReference.ts";
+import { formatRef } from "./formatRef.ts";
 
 interface FindRefOptions {
-  volume?: "ot" | "nt" | "bom" | "dc" | "pgp";
   books?: (keyof typeof contents)[];
   maxResults?: number;
   minLevDist?: number;
   minSubstr?: number;
+  volume?: "ot" | "nt" | "bom" | "dc" | "pgp";
 }
 
 interface Result {
-  lev: number;
-  sub: number;
-  score: number;
-  string: string;
-  verse: number;
   bookName: string;
   chapter: number;
   content: string;
+  lev: number;
+  match: string;
+  score: number;
+  sub: number;
+  verse: number;
 }
 
 export function findRef(
@@ -83,7 +83,7 @@ export function findRef(
           lev: diff,
           sub: subStr.length,
           score: diff + subStr.length,
-          string: subStr,
+          match: subStr,
           content: rawVerse,
           bookName: b,
           chapter: i + 1,
@@ -101,26 +101,21 @@ export function findRef(
 
   const results = arr.slice(0, maxResults);
 
-  return results.map((r) => {
-    const book = bookRefs.find((b) => b.name === r.bookName) as Book;
-    const chapter = r.chapter;
-    const verses = [r.verse];
+  return results.map(({ bookName, chapter, content, match, verse }) => {
+    const book = bookRefs.find((b) => b.name === bookName) as Book;
+    // const chapter = r.chapter;
+    const verses = [verse];
 
-    const { reference, abbr, link, content } = formatReference({
+    const reference = formatRef({
       book,
       chapter,
-      ranges: verses,
+      verses,
+      content,
     });
 
     return {
-      book: { name: book.name, abbr: book.abbr },
-      chapter,
-      verses,
-      reference,
-      abbr,
-      link,
-      content,
-      match: r.string,
+      ...reference,
+      match,
     };
   });
 }

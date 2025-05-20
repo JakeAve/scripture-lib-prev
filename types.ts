@@ -19,7 +19,7 @@ export interface Reference {
   reference: string;
   abbr: string;
   link: string;
-  content: string;
+  content?: string;
 }
 
 export interface ReferenceMatch extends Reference {
