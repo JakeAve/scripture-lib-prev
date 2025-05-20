@@ -4,7 +4,7 @@ import { Book, Reference, VerseRange } from "../types.ts";
 import { formatRef } from "./formatRef.ts";
 
 /**
- * Takes a fuzzy string scripture references and returns a structured reference object
+ * Takes a fuzzy string scripture references and returns a structured reference object.
  * @param input A string representing a reference, e.g. "gen 1:1-3,5"
  * @returns Reference object containing parsed information
  * @example
@@ -132,12 +132,12 @@ function parseBook(bookText: string): Book {
 
     const dA = Math.min(
       Math.abs(abbrA.length - bookText.length),
-      Math.abs(nameA.length - bookText.length),
+      Math.abs(nameA.length - bookText.length)
     );
 
     const dB = Math.min(
       Math.abs(abbrB.length - bookText.length),
-      Math.abs(nameB.length - bookText.length),
+      Math.abs(nameB.length - bookText.length)
     );
 
     if (dA < dB) {

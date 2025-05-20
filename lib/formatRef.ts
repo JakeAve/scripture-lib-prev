@@ -1,4 +1,3 @@
-import contents from "../data/contents.ts";
 import { Book, Reference, VerseRange } from "../types.ts";
 
 const domain = "https://www.churchofjesuschrist.org";
@@ -16,20 +15,17 @@ const lang = "?lang=eng";
  * @param {Book} opts.book - The book of scripture being referenced.
  * @param {number | undefined} opts.chapter - The chapter number, if applicable.
  * @param {VerseRange} opts.verses - An array of verse numbers or ranges.
- * @param {string} [opts.content] - Optional pre-provided content for the passage.
  *
  * @returns {Object} An object containing the formatted reference.
  * @returns {string} return.reference - Full reference string (e.g., "John 3:16").
  * @returns {string} return.abbr - Abbreviated reference (e.g., "Jn 3:16").
  * @returns {string} return.link - URL linking to the passage on the church website.
- * @returns {string} return.content - The extracted text content of the referenced verses.
  * @returns {number | undefined} return.chapter - The chapter number (if applicable).
  * @returns {VerseRange} return.verses - The validated and sorted list of verse numbers.
  */
 export function formatRef({
   book,
   chapter,
-  content: contentInput,
   verses = [],
 }: {
   book: Book;
@@ -64,7 +60,6 @@ export function formatRef({
 
   const ps: string[] = [];
   const vs: string[] = [];
-  let content: string | undefined = "";
 
   if (verses.length && chapter) {
     for (const [idx, range] of verses.entries()) {
@@ -80,16 +75,6 @@ export function formatRef({
 
         ps.push(`p${range[0]}-p${range[1]}`);
         vs.push(`${range[0]}-${range[1]}`);
-
-        if (!contentInput) {
-          for (let i = range[0]; i < range[1]; i++) {
-            const idx = i - 1;
-            content += contents[book.name as keyof typeof contents][
-              (chapter as number) - 1
-            ]?.[idx];
-            content += " ";
-          }
-        }
       } else {
         // If the verse doesn't exist, change it to show the highest verse
         if (range > book.chapters[chapter - 1]) {
@@ -98,31 +83,9 @@ export function formatRef({
 
         ps.push(`p${range}`);
         vs.push(range.toString());
-
-        if (!contentInput) {
-          content += contents[book.name as keyof typeof contents][
-            (chapter as number) - 1
-          ]?.[range - 1];
-
-          content += " ";
-        }
       }
     }
   }
-
-  // entire chapter
-  if (
-    chapter &&
-    !verses.length &&
-    !contentInput &&
-    contents[book.name as keyof typeof contents]
-  ) {
-    const chapterContent =
-      contents[book.name as keyof typeof contents][chapter - 1];
-    content = chapterContent.join(" ");
-  }
-
-  content = contentInput || content.trim() || undefined;
 
   const chapterPath = chapter ? "/" + chapter : "";
 
@@ -152,7 +115,6 @@ export function formatRef({
     abbr,
     book: { name: book.name, abbr: book.abbr },
     chapter,
-    content,
     link,
     reference,
     verses,

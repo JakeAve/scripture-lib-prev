@@ -110,11 +110,11 @@ export function findRef(
       book,
       chapter,
       verses,
-      content,
     });
 
     return {
       ...reference,
+      content,
       match,
     };
   });
