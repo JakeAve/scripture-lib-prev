@@ -34,8 +34,9 @@ export interface ReferenceMatch extends Reference {
 
 ## server.ts
 
-Server exports contain all of the contents within the runtime: ~ 7 megabytes. They shouldn't be used directly on the client to avoid this large download.
-The references includes the actual text from scripture passages in the `content`
+Server exports contain all of the contents within the runtime: ~ 7 megabytes.
+They shouldn't be used directly on the client to avoid this large download. The
+references includes the actual text from scripture passages in the `content`
 field.
 
 ### `findRef(input: string, options): ReferenceMatch[]`
