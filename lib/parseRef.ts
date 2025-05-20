@@ -132,12 +132,12 @@ function parseBook(bookText: string): Book {
 
     const dA = Math.min(
       Math.abs(abbrA.length - bookText.length),
-      Math.abs(nameA.length - bookText.length)
+      Math.abs(nameA.length - bookText.length),
     );
 
     const dB = Math.min(
       Math.abs(abbrB.length - bookText.length),
-      Math.abs(nameB.length - bookText.length)
+      Math.abs(nameB.length - bookText.length),
     );
 
     if (dA < dB) {
