@@ -31,7 +31,7 @@ await Deno.readTextFile(CONFIG_PATH)
       /"version":.*,/,
       `"version": "${newVersion}",`,
     );
-    console.log('about to write', updatedConfig)
+
     return Deno.writeTextFile(CONFIG_PATH, updatedConfig);
   }).then(() => Deno.stdout.write(new TextEncoder().encode(newVersion))).then(
     () => {
