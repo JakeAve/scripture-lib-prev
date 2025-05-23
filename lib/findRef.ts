@@ -103,7 +103,6 @@ export function findRef(
 
   return results.map(({ bookName, chapter, content, match, verse }) => {
     const book = bookRefs.find((b) => b.name === bookName) as Book;
-    // const chapter = r.chapter;
     const verses = [verse];
 
     const reference = formatRef({
