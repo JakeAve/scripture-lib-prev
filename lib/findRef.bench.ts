@@ -1,4 +1,4 @@
-import contents from "../data/contents.ts";
+import type contents from "../data/contents.ts";
 import { findRef } from "./findRef.ts";
 
 const passages = [

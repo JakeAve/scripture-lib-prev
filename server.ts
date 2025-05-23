@@ -1,7 +1,7 @@
 import { findRef } from "./lib/findRef.ts";
 import { getContent } from "./lib/getContent.ts";
 import { parseRef as parseRefWOutContent } from "./lib/parseRef.ts";
-import { Reference } from "./types.ts";
+import type { Reference } from "./types.ts";
 
 /**
  * Server version includes content

@@ -1,7 +1,7 @@
 import books from "../data/books.ts";
 import { distance } from "fastest-levenshtein";
-import { Book, Reference, VerseRange } from "../types.ts";
 import { formatRef } from "./formatRef.ts";
+import type { Book, Reference, VerseRange } from "../types.ts";
 
 /**
  * Takes a fuzzy string scripture references and returns a structured reference object.

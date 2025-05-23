@@ -1,5 +1,5 @@
 import contents from "../data/contents.ts";
-import { Reference } from "../types.ts";
+import type { Reference } from "../types.ts";
 
 export function getContent({
   book,

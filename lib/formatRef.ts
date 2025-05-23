@@ -1,7 +1,7 @@
-import { Book, Reference, VerseRange } from "../types.ts";
+import type { Book, Reference, VerseRange } from "../types.ts";
 
-const domain = "https://www.churchofjesuschrist.org";
-const lang = "?lang=eng";
+const DOMAIN = "https://www.churchofjesuschrist.org";
+const LANG = "?lang=eng";
 
 /**
  * Formats a scripture reference into a structured object, including a readable string,
@@ -100,7 +100,11 @@ export function formatRef({
   const highlights = verses.length ? "&id=" + ps.join(",") : "";
 
   const link =
-    `${domain}${book.path}${chapterPath}${lang}${highlights}${anchor}`;
+    `${DOMAIN}${book.path}${chapterPath}${LANG}${highlights}${anchor}`;
+
+  const api = book.api && chapterPath
+    ? `${book.api}${chapterPath}${vs.length ? "/" + vs.join("/") : ""}`
+    : undefined;
 
   const numberPortion = `${chapter || ""}${vs.length ? ":" : ""}${
     vs.join(
@@ -113,6 +117,7 @@ export function formatRef({
 
   return {
     abbr,
+    api,
     book: { name: book.name, abbr: book.abbr },
     chapter,
     link,

@@ -1,7 +1,7 @@
 import { assertEquals } from "@std/assert";
 import { formatRef } from "./formatRef.ts";
 import books from "../data/books.ts";
-import { Book, Reference } from "../types.ts";
+import type { Book, Reference } from "../types.ts";
 
 Deno.test("Puts verses in chronological order", () => {
   const ref = formatRef({
@@ -12,6 +12,7 @@ Deno.test("Puts verses in chronological order", () => {
 
   const expected = {
     abbr: "1 Ne. 3:1-2, 7, 12-10",
+    api: "/1-ne/3/1-2/7/12-10",
     book: { name: "1 Nephi", abbr: "1 Ne." },
     chapter: 3,
     link:
@@ -30,6 +31,7 @@ Deno.test("Will set chapter to 1 when there's only one chapter", () => {
 
   const expected = {
     abbr: "Obad. 1",
+    api: "/obad/1",
     book: { name: "Obadiah", abbr: "Obad." },
     chapter: 1,
     link:
@@ -48,6 +50,7 @@ Deno.test("Will link to book if no chapter or verses are provided", () => {
 
   const expected = {
     abbr: "John",
+    api: undefined,
     book: { name: "John", abbr: "John" },
     chapter: undefined,
     link:
@@ -68,6 +71,7 @@ Deno.test("Will remove chapter if it doesn't exist", () => {
 
   const expected = {
     abbr: "Titus",
+    api: undefined,
     book: { name: "Titus", abbr: "Titus" },
     chapter: undefined,
     link:
@@ -88,6 +92,7 @@ Deno.test("Will lower verses if they do not exist in the chapter", () => {
 
   const expected = {
     abbr: "D&C 2:1-3",
+    api: "/dc/2/1-3",
     book: { name: "Doctrine and Covenants", abbr: "D&C" },
     chapter: 2,
     link:

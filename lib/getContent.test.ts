@@ -1,6 +1,6 @@
 import { assertEquals } from "@std/assert";
 import { getContent } from "./getContent.ts";
-import { Reference } from "../types.ts";
+import type { Reference } from "../types.ts";
 
 Deno.test("Can get a single verse", () => {
   const ref = {

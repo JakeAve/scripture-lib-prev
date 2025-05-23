@@ -1,5 +1,13 @@
 {
+  "name": "@jakeave/scripture-ref",
+  "description": "Library for finding and formatting scripture references from the canon of the Church of Jesus Christ of Latter-day Saints",
   "version": "0.0.4",
+  "license": "MIT",
+  "exports": {
+    "./client": "./client.ts",
+    "./server": "./server.ts",
+    "./types": "./types.ts"
+  },
   "tasks": {
     "version": "deno run --allow-read=./ --allow-write=./ ./scripts/version.ts"
   },

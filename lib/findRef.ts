@@ -1,8 +1,8 @@
 import { distance } from "fastest-levenshtein";
 import contents, * as volumes from "../data/contents.ts";
-import { Book, ReferenceMatch } from "../types.ts";
 import bookRefs from "../data/books.ts";
 import { formatRef } from "./formatRef.ts";
+import type { Book, ReferenceMatch } from "../types.ts";
 
 interface FindRefOptions {
   books?: (keyof typeof contents)[];
