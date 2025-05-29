@@ -8,6 +8,15 @@
     "./server": "./server.ts",
     "./types": "./types.ts"
   },
+  "publish": {
+    "exclude": [
+      "/.vscode",
+      "/hooks",
+      "/lib/**/*.test.ts",
+      "/lib/**/*.bench.ts",
+      "/scripts"
+    ]
+  },
   "tasks": {
     "version": "deno run --allow-read=./ --allow-write=./ ./scripts/version.ts"
   },

@@ -23,6 +23,7 @@ const references = [
 ];
 
 import books from "../data/books.ts";
+import type { Book } from "../types.ts";
 
 for (const ref of references) {
   const parsedRef = parseRef(ref);
